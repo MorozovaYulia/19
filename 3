@@ -1,0 +1,40 @@
+#include <iostream>
+#include <cmath>
+using namespace std;
+int main()
+{
+	float p = -1, pmax = -1;
+	int i, K=0, N, M, min=INT_MAX, max=INT_MIN, c = 0, j, j1, c1=0, s = 0; 
+	float m;
+	cin >> N>>M;
+	int *A[N];
+	for	(i=0; i<M; i++) A[i] = new int[N];
+	cout << "Vvedite elementy matricy: ";
+	for (i = 0; i < M; i++){
+		for (j = 0; j < N; j++)
+			cin >> A[i][j];
+	}
+	
+	for (i=0; i<M/2; i++){
+		
+		for (j = 0; j < N/2; j++){
+			A[i][j]+=A[(M/2)+i][(N/2)+j];
+			A[(M/2)+i][(N/2)+j]=A[i][j]-A[(M/2)+i][(N/2)+j];
+			A[i][j]-=A[(M/2)+i][(N/2)+j];
+			//cout<<"swap";
+		}
+		
+	}
+	
+	
+	
+	for (i=0; i<M; i++){
+		for (j = 0; j < N; j++){
+			
+			cout<<A[i][j]<<"\t";
+		}
+		cout<<endl;
+}
+}
+
+
